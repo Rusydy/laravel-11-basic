@@ -7,5 +7,5 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/about', function () {
-    return view('about.index');
+    return view('about.index', ['company' => 'Laravel']);
 })->name('about.index');
