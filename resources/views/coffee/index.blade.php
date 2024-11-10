@@ -1,16 +1,13 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<x-layout>
     <h1>Coffee</h1>
 
     <ul>
         @foreach ($coffees as $coffee)
-            <li>{{ $coffee['name'] }} - ${{ $coffee['price'] }}</li>
+            <li>
+                <a href="{{ route('coffee.show', $coffee) }}">
+                    {{ $coffee['name'] }}
+                </a>
+            </li>
         @endforeach
     </ul>
-</body>
-</html>
+</x-layout>

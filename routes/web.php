@@ -21,3 +21,17 @@ Route::get('/coffee', function () {
 
     return view('coffee.index', ['coffees' => $coffees]);
 })->name('coffee.index');
+
+Route::get('/coffee/{id}', function ($id) {
+    $coffees = [
+        ["name" => "Americano", "price" => 2.5, "id" => 1],
+        ["name" => "Latte", "price" => 3.5, "id" => 2],
+        ["name" => "Cappuccino", "price" => 4.0, "id" => 3],
+        ["name" => "Mocha", "price" => 4.5, "id" => 4],
+        ["name" => "Macchiato", "price" => 3.0, "id" => 5],
+    ];
+
+    $coffee = collect($coffees)->firstWhere('id', $id);
+
+    return view('coffee.show', ['coffee' => $coffee]);
+})->name('coffee.show');
